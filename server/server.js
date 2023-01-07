@@ -7,7 +7,7 @@ dotenv.config()
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
-  model: process.env.text-davinci-003,
+  model: process.env.model,
 });
 
 const openai = new OpenAIApi(configuration);
