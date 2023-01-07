@@ -8,6 +8,11 @@ dotenv.config()
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
   model: process.env.model,
+  temperature:process.env.temperature,
+  max_tokens:process.env.max_tokens,
+  top_p: process.env.top_p,
+  frequency_penalty: process.env.frequency_penalty,
+  presence_penalty: process.env.presence_penalty,
 });
 
 const openai = new OpenAIApi(configuration);
@@ -27,13 +32,13 @@ app.post('/', async (req, res) => {
     const prompt = req.body.prompt;
 
     const response = await openai.createCompletion({
-      //model: "text-davinci-003",
+      model: configuration.model,
       prompt: `${prompt}`,
-      temperature: 0, // Higher values means the model will take more risks.
-      max_tokens: 3000, // The maximum number of tokens to generate in the completion. Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
-      top_p: 1, // alternative to sampling with temperature, called nucleus sampling
-      frequency_penalty: 0.5, // Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
-      presence_penalty: 0, // Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
+      temperature: configuration.temperature,
+      max_tokens: configuration.max_tokens,
+      top_p: configuration.top_p,
+      frequency_penalty: configuration.frequency_penalty,
+      presence_penalty: configuration.presence_penalty,
     });
 
     res.status(200).send({
