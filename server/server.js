@@ -17,7 +17,7 @@ const configuration = new Configuration({
   presence_penalty: 0,
 }*/
 const config = {
-  model: process.env.MODEL,
+  model: "text-davinci-003",
   temperature: process.env.TEMPERATURE,
   max_tokens: process.env.MAX_TOKENS,
   top_p: process.env.TOP_P,
