@@ -17,14 +17,13 @@ const configuration = new Configuration({
   presence_penalty: 0,
 }*/
 const config = {
-  model: process.model,
-  temperature: process.temperature,
-  max_tokens: process.max_tokens,
-  top_p: process.top_p,
-  frequency_penalty: process.frequency_penalty,
-  presence_penalty: process.presence_penalty,
+  model: process.env.MODEL,
+  temperature: process.env.TEMPERATURE,
+  max_tokens: process.env.MAX_TOKENS,
+  top_p: process.env.TOP_P,
+  frequency_penalty: process.env.FREQUENCY_PENALTY,
+  presence_penalty: process.env.PRESENCE_PENALTY,
 }
-
 const openai = new OpenAIApi(configuration);
 
 const app = express()
