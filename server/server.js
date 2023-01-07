@@ -39,13 +39,13 @@ app.post('/', async (req, res) => {
     const prompt = req.body.prompt;
 
     const response = await openai.createCompletion({
-      model: config.model,
+      model: configuration.model,
   prompt: `${prompt}`,
-  temperature: config.temperature,
-  max_tokens: config.max_tokens,
-  top_p: config.top_p,
-  frequency_penalty: config.frequency_penalty,
-  presence_penalty: config.presence_penalty,
+  temperature: configuration.temperature,
+  max_tokens: configuration.max_tokens,
+  top_p: configuration.top_p,
+  frequency_penalty: configuration.frequency_penalty,
+  presence_penalty: configuration.presence_penalty,
     });
 
     res.status(200).send({
