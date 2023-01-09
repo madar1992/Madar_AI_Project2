@@ -24,7 +24,7 @@ const config = {
   max_tokens: process.env.MAX_TOKENS,
   top_p: process.env.TOP_P,
   frequency_penalty: process.env.FREQUENCY_PENALTY,
-  presence_penalty: process.env.PRESENCE_PENALTY,
+  presence_penalty: process.env.PRESENCE_PENALTY
 
  
 
