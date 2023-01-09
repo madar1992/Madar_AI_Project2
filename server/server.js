@@ -25,6 +25,11 @@ const config = {
   top_p: "process.env.TOP_P",
   frequency_penalty: "process.env.FREQUENCY_PENALTY",
   presence_penalty: "process.env.PRESENCE_PENALTY",
+    temperature_value: 0.7,
+  max_tokens_value: 50,
+  top_p_value: 0.9,
+  frequency_penalty_value: 1.0,
+  presence_penalty_value: 0.2
 }
 
 const openai = new OpenAIApi(configuration);
