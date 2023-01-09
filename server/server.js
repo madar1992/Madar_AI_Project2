@@ -8,6 +8,7 @@ dotenv.config()
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
+/*
 const config = {
   model: "text-davinci-003",
   temperature: 0,
@@ -16,16 +17,16 @@ const config = {
   frequency_penalty: 0.5,
   presence_penalty: 0,
 }
-/*
+*/
 const config = {
   model: "text-davinci-003",
-  temperature: process.env.TEMPERATURE,
-  max_tokens: process.env.MAX_TOKENS,
-  top_p: process.env.TOP_P,
-  frequency_penalty: process.env.FREQUENCY_PENALTY,
-  presence_penalty: process.env.PRESENCE_PENALTY,
+  temperature: "process.env.TEMPERATURE",
+  max_tokens: "process.env.MAX_TOKENS",
+  top_p: "process.env.TOP_P",
+  frequency_penalty: "process.env.FREQUENCY_PENALTY",
+  presence_penalty: "process.env.PRESENCE_PENALTY",
 }
-*/
+
 const openai = new OpenAIApi(configuration);
 
 const app = express()
