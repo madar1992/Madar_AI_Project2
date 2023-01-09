@@ -51,11 +51,12 @@ app.post('/', async (req, res) => {
     const response = await openai.createCompletion({
       model: config.model,
   prompt: `${prompt}`,
-  temperature: config.temperature,
-  max_tokens: config.max_tokens,
-  top_p: config.top_p,
-  frequency_penalty: config.frequency_penalty,
-  presence_penalty: config.presence_penalty,
+
+  temperature: config.temperature_value,
+  max_tokens: config.max_tokens_value,
+  top_p: config.top_p_value,
+  frequency_penalty: config.frequency_penalty_value,
+  presence_penalty: config.presence_penalty_value
     });
 
     res.status(200).send({
